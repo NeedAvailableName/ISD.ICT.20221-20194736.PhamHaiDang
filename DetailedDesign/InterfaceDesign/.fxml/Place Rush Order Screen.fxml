@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TitledPane prefHeight="400.0" prefWidth="600.0" text="Rush order detail">
+         <content>
+            <SplitPane dividerPositions="0.5" prefHeight="160.0" prefWidth="200.0">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                     <children>
+                        <Label alignment="TOP_CENTER" layoutX="-1.0" layoutY="3.0" prefHeight="43.0" prefWidth="297.0" text="Item List">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="139.0" fitWidth="135.0" layoutX="-1.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@03.png" />
+                           </image>
+                        </ImageView>
+                        <CheckBox layoutX="179.0" layoutY="137.0" mnemonicParsing="false" text="Order" />
+                        <Label alignment="CENTER" layoutX="147.0" layoutY="73.0" prefHeight="18.0" prefWidth="129.0" text="Name: Spy x family" textAlignment="CENTER" />
+                        <Label alignment="CENTER" layoutX="147.0" layoutY="105.0" prefHeight="18.0" prefWidth="129.0" text="Price: 100000d" textAlignment="CENTER" />
+                     </children>
+                  </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="372.0" prefWidth="271.0" />
+              </items>
+            </SplitPane>
+         </content>
+      </TitledPane>
+   </children>
+</AnchorPane>
