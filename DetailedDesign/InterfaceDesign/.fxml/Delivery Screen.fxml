@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0">
+         <top>
+            <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="50.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/Aims_Logo.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="144.0" layoutY="5.0" text="Delivery information" textFill="#1809e9">
+                     <font>
+                        <Font name="Freestyle Script" size="65.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </top>
+         <bottom>
+            <Pane prefHeight="500.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+               <children>
+                  <RadioButton layoutX="468.0" layoutY="379.0" mnemonicParsing="false" text="No">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </RadioButton>
+                  <TextField layoutX="242.0" layoutY="12.0" prefHeight="35.0" prefWidth="420.0" />
+                  <TextField layoutX="242.0" layoutY="67.0" prefHeight="35.0" prefWidth="420.0" />
+                  <ChoiceBox layoutX="242.0" layoutY="118.0" prefHeight="35.0" prefWidth="226.0" />
+                  <TextField layoutX="242.0" layoutY="229.0" prefHeight="42.0" prefWidth="420.0" />
+                  <TextField layoutX="242.0" layoutY="288.0" prefHeight="70.0" prefWidth="420.0" />
+                  <Label layoutX="124.0" layoutY="16.0" text="Name">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="90.0" layoutY="71.0" text="Phone number">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="96.0" layoutY="122.0" text="Province/City">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="117.0" layoutY="237.0" text="Address">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="69.0" layoutY="309.0" text="Shipping instruction">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="188.0" layoutY="432.0" mnemonicParsing="false" style="-fx-background-color: #f20707;" text="Submit" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="121.0" layoutY="178.0" text="District">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <ChoiceBox layoutX="242.0" layoutY="174.0" prefHeight="35.0" prefWidth="226.0" />
+                  <Label layoutX="104.0" layoutY="379.0" text="Rush order">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <RadioButton layoutX="286.0" layoutY="379.0" mnemonicParsing="false" text="Yes">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </RadioButton>
+                  <Button layoutX="468.0" layoutY="432.0" mnemonicParsing="false" style="-fx-background-color: #ffffff; -fx-border-color: #cccccc;" text="Cancel" textFill="#ef0707">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+         </bottom>
+      </BorderPane>
+   </children>
+</Pane>
