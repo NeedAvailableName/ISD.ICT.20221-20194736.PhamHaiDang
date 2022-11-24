@@ -1,5 +1,0 @@
-full class diagram
-state machine: cancel, shipping,...
-ve relationship chung, ve tung class roi gop vao, 
-may cai class controller, interface mo ta chi tiet
-place + rush order
