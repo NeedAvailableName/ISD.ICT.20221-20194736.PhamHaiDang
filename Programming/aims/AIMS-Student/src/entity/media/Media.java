@@ -10,10 +10,6 @@ import java.util.logging.Logger;
 import entity.db.AIMSDB;
 import utils.Utils;
 
-/**
- * The general media class, for another media it can be done by inheriting this class
- * @author nguyenlm
- */
 public class Media {
 
     private static Logger LOGGER = Utils.getLogger(Media.class.getName());
@@ -45,7 +41,11 @@ public class Media {
         //stm = AIMSDB.getConnection().createStatement();
     }
 
-    public int getQuantity() throws SQLException{
+    public Media(int id2, String title2, String category2, int price2, int quantity2, String type2) {
+		// TODO Auto-generated constructor stub
+	}
+
+	public int getQuantity() throws SQLException{
         int updated_quantity = getMediaById(id).quantity;
         this.quantity = updated_quantity;
         return updated_quantity;

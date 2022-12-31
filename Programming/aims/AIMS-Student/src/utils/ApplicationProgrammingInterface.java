@@ -9,6 +9,7 @@ import java.io.Writer;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -20,17 +21,23 @@ import java.util.logging.Logger;
 import entity.payment.CreditCard;
 import entity.payment.PaymentTransaction;
 
-public class API {
+public class ApplicationProgrammingInterface {
 
-	public static DateFormat DATE_FORMATER = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-	private static Logger LOGGER = Utils.getLogger(Utils.class.getName());
-
+	/**
+	 * @param url
+	 * @param token
+	 * @return
+	 * @throws Exception
+	 */
+	/**
+	 * @param url
+	 * @param token
+	 * @return
+	 * @throws Exception
+	 */
 	public static String get(String url, String token) throws Exception {
 		LOGGER.info("Request URL: " + url + "\n");
-		URL line_api_url = new URL(url);
-		HttpURLConnection conn = (HttpURLConnection) line_api_url.openConnection();
-		conn.setDoInput(true);
-		conn.setDoOutput(true);
+		HttpURLConnection conn = setupConnection(url);
 		conn.setRequestMethod("GET");
 		conn.setRequestProperty("Content-Type", "application/json");
 		conn.setRequestProperty("Authorization", "Bearer " + token);
@@ -43,6 +50,36 @@ public class API {
 		in.close();
 		LOGGER.info("Respone Info: " + respone.substring(0, respone.length() - 1).toString());
 		return respone.substring(0, respone.length() - 1).toString();
+	}
+
+	public static DateFormat DATE_FORMATER = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+	private static Logger LOGGER = Utils.getLogger(Utils.class.getName());
+
+	private static HttpURLConnection setupConnection(String url) throws MalformedURLException, IOException {
+		HttpURLConnection conn = (HttpURLConnection) new URL(url).openConnection();
+		conn.setDoInput(true);
+		conn.setDoOutput(true);
+		return conn;
+	}
+
+	private static void allowMethods(String... methods) {
+		try {
+			Field methodsField = HttpURLConnection.class.getDeclaredField("methods");
+			methodsField.setAccessible(true);
+	
+			Field modifiersField = Field.class.getDeclaredField("modifiers");
+			modifiersField.setAccessible(true);
+			modifiersField.setInt(methodsField, methodsField.getModifiers() & ~Modifier.FINAL);
+	
+			String[] oldMethods = (String[]) methodsField.get(null);
+			Set<String> methodsSet = new LinkedHashSet<>(Arrays.asList(oldMethods));
+			methodsSet.addAll(Arrays.asList(methods));
+			String[] newMethods = methodsSet.toArray(new String[0]);
+	
+			methodsField.set(null/* static field */, newMethods);
+		} catch (NoSuchFieldException | IllegalAccessException e) {
+			throw new IllegalStateException(e);
+		}
 	}
 
 	int var;
@@ -76,26 +113,6 @@ public class API {
 		in.close();
 		LOGGER.info("Respone Info: " + response.toString());
 		return response.toString();
-	}
-
-	private static void allowMethods(String... methods) {
-		try {
-			Field methodsField = HttpURLConnection.class.getDeclaredField("methods");
-			methodsField.setAccessible(true);
-
-			Field modifiersField = Field.class.getDeclaredField("modifiers");
-			modifiersField.setAccessible(true);
-			modifiersField.setInt(methodsField, methodsField.getModifiers() & ~Modifier.FINAL);
-
-			String[] oldMethods = (String[]) methodsField.get(null);
-			Set<String> methodsSet = new LinkedHashSet<>(Arrays.asList(oldMethods));
-			methodsSet.addAll(Arrays.asList(methods));
-			String[] newMethods = methodsSet.toArray(new String[0]);
-
-			methodsField.set(null/* static field */, newMethods);
-		} catch (NoSuchFieldException | IllegalAccessException e) {
-			throw new IllegalStateException(e);
-		}
 	}
 
 }

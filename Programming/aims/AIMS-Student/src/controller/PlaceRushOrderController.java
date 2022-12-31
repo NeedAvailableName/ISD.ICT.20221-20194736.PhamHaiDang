@@ -1,13 +1,15 @@
 package controller;
+
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map.Entry;
 
-//import entity.NormalOrder;
-import entity.order.Order;
-//import entity.RushOrder;
+import entity.NormalOrder;
+import entity.Order;
+import entity.RushOrder;
 import entity.media.Media;
-import common.exception.*;
+import common.exception.PlaceOrderException;
+
 public class PlaceRushOrderController extends PlaceOrderController {
 	private static PlaceRushOrderController placeRushOrderController;
 	PlaceRushOrderController(HashMap<Media, Integer> itemsToBePurchased) throws PlaceOrderException {
@@ -20,4 +22,14 @@ public class PlaceRushOrderController extends PlaceOrderController {
 			}
 		}
 		this.order = new RushOrder(itemsToBePurchased);
+	}
+	
+	public static PlaceRushOrderController getPlaceRushOrderController(HashMap<Media, Integer> itemsToBePurchased) throws PlaceOrderException {
+		if (placeRushOrderController == null) {
+			placeRushOrderController = new PlaceRushOrderController(itemsToBePurchased);
+			placeRushOrderController.placeOrderController = placeRushOrderController;
+		}
+		
+		return placeRushOrderController;
+	}
 }
